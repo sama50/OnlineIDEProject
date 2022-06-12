@@ -1,0 +1,5 @@
+def main(x):
+    #write code here
+    for i in x:
+        print(i)
+

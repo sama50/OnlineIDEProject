@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}All Problems{% endblock title %}
+{% block codeArea1 %}
+<div class="container">
+    <h1>My Profile</h1>
+    <a href="/">Home</a>
+    <h4>{{user.collegeName}}</h4>
+    <h2>{{user.user}}</h2>
+    <h3>{{user.name}}</h3>
+    <p>{{user.locality}}  {{user.city}}</p>
+    <div class="container">
+        <h1>Code Problem List</h1>
+        <h2 style="text-align:center; background-color:rgb(66,133,244)">You solved  <span>{{count}}</span></h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Problems Name</th> 
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+            {% for fm in listof %}
+             
+                <tr> 
+                   <th scope="row">{{fm.id}}</th>
+                   <td>{{fm.problem}}</td> 
+                 </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock codeArea1 %}

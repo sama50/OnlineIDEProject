@@ -1,0 +1,71 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block codeArea1 %}
+    <style>
+      #input{
+          resize: none;
+      }
+      #output{
+          resize: none;
+      }
+    </style>
+    <title>Online Python</title>
+  </head>
+  <body style="font-family:Verdana;"><br>
+    <h1 style="text-align:center;">Samadhan IDE - Python</h1><br>
+
+   <div class="mt-2 d-flex">
+    <div class="col-5">
+      <h3>Problem Statement</h3>
+      <p>print 1 to 10 Odd No
+      </p>
+      <div class="form-group" style="margin-left:50px;margin-right:50px;">
+        <label for="output">Input</label>
+        <textarea type="text" class="form-control" id="input" name="input" rows="4" disabled> </textarea>
+        <label for="output">Output</label>
+        <textarea type="text" class="form-control" id="output" name="output" rows="4" disabled></textarea>
+      </div>
+    </div>
+     <div class="col-6">
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group" style="margin-left:50px;margin-right:50px;">
+      <label for="codearea">Code Area</label>
+       {{fm}}
+    </div>
+  
+    <div class="form-group" style="margin-left:50px;margin-right:50px;">
+      
+      <label for="input">input</label>
+      <textarea type="text" class="form-control" id="cusInputarea" name="my_textarea"  rows="4"></textarea>
+      <br>
+      <label for="output">Output</label>
+      <textarea type="text" class="form-control" id="output" name="output" rows="4" disabled> {{ output }} </textarea>
+    </div>
+  
+    <button type="submit" name="run" class="btn btn-primary mt-2" style="margin-left:50px;">Run</button> 
+    <button type="submit" name="allrun" class="btn btn-primary mt-2" style="margin-left:50px;">Submit</button> 
+    </form>
+    {% if flag|length == 4 %}
+      <h1>Accepted..</h1> 
+    {% elif flag|length == 5 %}
+      <h1>Fail....</h1> 
+    {% endif %}
+  
+     </div>
+   </div>
+   <script>
+    
+    const message = document.getElementById('cusInputarea');
+    var checkBox = document.getElementById("iscustome");
+    
+     
+    
+    {% comment %} message.value = '[2,5,3,6,8]' + '\r\n' + '5' + '\r\n'; {% endcomment %}
+    const message1 = document.getElementById('output');
+
+    message1.value = '1' + '\r\n'+'3' + '\r\n'+'5' + '\r\n'+'7' + '\r\n'+'9';
+   </script>
+   {% endblock codeArea1 %}

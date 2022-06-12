@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}All Problems{% endblock title %}
+{% block codeArea1 %}
+<div class="container">
+    <h1>hello Coder</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Problems Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        {% for fm in fm %}
+        
+            <tr>
+                {{fm.saveDate}}
+               <th scope="row">{{fm.id}}</th>
+               <td>{{fm.title}}</td> 
+               <td> <a href="{% url 'code' fm.id %}" class="secondary">solve</a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock codeArea1 %}
